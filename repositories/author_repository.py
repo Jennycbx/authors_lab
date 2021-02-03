@@ -24,12 +24,12 @@ def select_all():
 
 def select(id):
     user = None
-    sql = "SELECT * FROM author WHERE id = %s"
+    sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        author = Author[result['name'], result['books_written'], result['id']]
+        author = Author(result['name'], result['books_written'], result['id'])
     return author
 
 def delete_all():

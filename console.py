@@ -1,5 +1,6 @@
 import pdb
 from models.author import Author
+from models.book import Book
 
 import repositories.author_repository as author_repository
 import repositories.book_repository as book_repository
@@ -13,11 +14,11 @@ book_2 = Book("The Two Towers", author_1, 1954)
 book_repository.save(book_2)
 book_3 = Book("The Return of the King", author_1, 1955)
 book_repository.save(book_3)
-book_4 Book("The Silmarillion", author_1, 1977)
+book_4 = Book("The Silmarillion", author_1, 1977)
 book_repository.save(book_4)
 
 print(author_repository.select_all())
-
+print(book_repository.select_all())
 
 
 

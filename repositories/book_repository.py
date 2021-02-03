@@ -7,7 +7,7 @@ import repositories.author_repository as author_repository
 
 def save(book):
     sql = "INSERT INTO books (title, author_id, year) VALUES (%s, %s, %s) RETURNING *"
-    values = [book.title, book.author_id, book.year]
+    values = [book.title, book.author.id, book.year]
     results = run_sql(sql, values)
     id = results[0]['id']
     book.id = id
@@ -19,7 +19,7 @@ def select_all():
     sql = "SELECT * FROM books"
     results = run_sql(sql)
 
-    from row in results:
+    for row in results:
         author = author_repository.select(row['author_id'])
         book = Book(row['title'], author, row['year'])
         books.append(book)
