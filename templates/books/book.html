@@ -8,15 +8,15 @@
         {{book.title}}
         <span class='year'>{{book.year}}</span>
       </section>
-      
+
       <div class='buttons'>
         <form action="/books/{{book.id}}/delete" method='post' class='delete-form'>
-          <button type='submit' class='delete-button'>
+          <button type="submit" class='delete-button'>
             <i class="fa fa-trash-o fa-3x" aria-hidden="true"></i>
           </button>
         </form>
       </div>
-
+      {{book.id}}
     </section>
   </section>
 {% endfor %}
